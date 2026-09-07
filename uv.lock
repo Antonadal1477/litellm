@@ -1356,6 +1356,41 @@ wheels = [
 ]
 
 [[package]]
+name = "dmpython"
+version = "2.5.38"
+source = { registry = "https://pypi.org/simple" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/30/e8/a367fdf14559f0b67e85c89acb80d83e2d1e7ed0aa11536c4c60890fb2a5/dmpython-2.5.38-cp310-cp310-manylinux2010_x86_64.manylinux_2_12_x86_64.whl", hash = "sha256:65b0700b363ee90b04613f164ff9a8db73223b65c4ba7162573d1e72bccccc1b", size = 10958536, upload-time = "2026-07-17T06:12:15.147Z" },
+    { url = "https://files.pythonhosted.org/packages/bd/c2/596ddb23d1ad9996f799bfcbeddaf10e03627bfb9d5ee6364f63c229389d/dmpython-2.5.38-cp310-cp310-manylinux2014_aarch64.manylinux_2_17_aarch64.whl", hash = "sha256:773f5da8106868618cb1e2f34c4e2dc07a3cf142b0fd832326176068bb06b16d", size = 11259377, upload-time = "2026-07-17T08:03:30.128Z" },
+    { url = "https://files.pythonhosted.org/packages/9b/75/42e77ea857436e995c89ba3b0987bc213bbb4d0802bebfbd10628bd7ece1/dmpython-2.5.38-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.whl", hash = "sha256:e1cb6f228dbfa0686469819089ac8dc759344c90f57912bb2177d56968d7ea5f", size = 11331290, upload-time = "2026-07-17T06:14:38.347Z" },
+    { url = "https://files.pythonhosted.org/packages/cc/b6/2be78db514cf55d85b5702433f1041fe0a783fadf7ca6f21ec13c4fcb61c/dmpython-2.5.38-cp310-cp310-win_amd64.whl", hash = "sha256:a2db01f395bfd48e1e2e0c9120ef5ce9d4eca2fcfd8f7a9013ef06c96c556560", size = 8767947, upload-time = "2026-07-17T06:19:16.197Z" },
+    { url = "https://files.pythonhosted.org/packages/cb/6e/c1169ad30c078a264210da52e6007d9d1801758beb8f347c5f8da0a8b234/dmpython-2.5.38-cp311-cp311-manylinux2010_x86_64.manylinux_2_12_x86_64.whl", hash = "sha256:91a3dfc15ee2345308ce4854af35771001c8265b0563bd2f4f7ec3a3966be76b", size = 11335013, upload-time = "2026-07-17T06:12:21.688Z" },
+    { url = "https://files.pythonhosted.org/packages/37/25/99450cbeb02acb12782b2e92094bbc7156f7a49ffd290cddcd518512e0ae/dmpython-2.5.38-cp311-cp311-manylinux2014_aarch64.manylinux_2_17_aarch64.whl", hash = "sha256:a00983f34d0247791a37fb113397550a13e04f56202ce7506efba58619b095f6", size = 11640488, upload-time = "2026-07-17T08:03:46.681Z" },
+    { url = "https://files.pythonhosted.org/packages/47/8e/a7369d456538513bf654aed89bde46ab0c385c2152b573b0907e3645db7d/dmpython-2.5.38-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl", hash = "sha256:a087fdb5ff4b46bdc4f6450c19a4149108855821bc35b88117aaf6e0749ad7c1", size = 11331291, upload-time = "2026-07-17T06:17:09.932Z" },
+    { url = "https://files.pythonhosted.org/packages/fa/0e/b69d8aa5b26b1fd3f3bd0382b459ab63f4e31dcac6f56a747ff434452579/dmpython-2.5.38-cp311-cp311-win_amd64.whl", hash = "sha256:b322f966ea7abf028018418cb7fc2baad83df86e53c4df4c78827c4405f9dbe2", size = 8833974, upload-time = "2026-07-17T06:19:27.525Z" },
+    { url = "https://files.pythonhosted.org/packages/03/27/5c7196a21f1da4362fd95d1e81e8195237990837887a830194fe11c608c4/dmpython-2.5.38-cp312-cp312-manylinux2010_x86_64.manylinux_2_12_x86_64.whl", hash = "sha256:6bc58f2f1b25ebcdca31ba99bd83f14be66ae66263644c0bb1e57bba2070e370", size = 10997565, upload-time = "2026-07-17T06:12:26.961Z" },
+    { url = "https://files.pythonhosted.org/packages/4b/63/e0bb56ad5d91a87071fa0e7f80b50325b1a521b9a131b1279e68912d343c/dmpython-2.5.38-cp312-cp312-manylinux2014_aarch64.manylinux_2_17_aarch64.whl", hash = "sha256:912a42985b80297967d50ff924de6ab0f9733819abc055d3bbcfe535a0ba10e9", size = 11291077, upload-time = "2026-07-17T08:04:00.392Z" },
+    { url = "https://files.pythonhosted.org/packages/c1/1d/81c9fe058737bc568ce1cf5d2304bb691ac5ab69df4b6043137c66ff6c9e/dmpython-2.5.38-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl", hash = "sha256:ce1b3d25a5062858ff47c4dc81cb5a2f40c7d4fae356d03a077afaa825a063ff", size = 10992122, upload-time = "2026-07-17T06:17:23.579Z" },
+    { url = "https://files.pythonhosted.org/packages/ec/6d/844a43309eb871eb052d295a4c05366d296abaa6066dd05bf46fccc178c9/dmpython-2.5.38-cp312-cp312-win_amd64.whl", hash = "sha256:5b3a82fac9b1f393d1b020126ce9c0f4c8ac5b7a757776d6425afd826f69a5ef", size = 8768175, upload-time = "2026-07-17T06:19:39.861Z" },
+    { url = "https://files.pythonhosted.org/packages/88/a6/f86542187bf982910eea638cbae7647cd38988ac4a9200d9404a5588a260/dmpython-2.5.38-cp313-cp313-manylinux2010_x86_64.manylinux_2_12_x86_64.whl", hash = "sha256:f5e524657e3d8b72a9380ecefb05255668798251d109a6eef36fb24008c5ffb4", size = 10987534, upload-time = "2026-07-17T06:12:33.12Z" },
+    { url = "https://files.pythonhosted.org/packages/e0/6d/00138f4cf080a35f931026b433a7907220d8aefa64a6a861e78094c3bc88/dmpython-2.5.38-cp313-cp313-manylinux2014_aarch64.manylinux_2_17_aarch64.whl", hash = "sha256:6e6f29187ab403650b8f8aa1ca7cb6b4257c1ad65492d8834f8ade135fa649f3", size = 11285825, upload-time = "2026-07-17T08:04:14.518Z" },
+    { url = "https://files.pythonhosted.org/packages/43/5b/c202a82ffe442a0297a1490fa5e25ca7f94ddde1e23bb36fe05a25eb4aab/dmpython-2.5.38-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.whl", hash = "sha256:a2d21589ab207b845ffa74912af8ae249350131b35fea0625c9621a5dc365623", size = 10986106, upload-time = "2026-07-17T06:17:37.688Z" },
+    { url = "https://files.pythonhosted.org/packages/b1/4a/8e78d8f9803a09cf470dd8816a0c26a718825cac4f9c5a40ad6d8d452388/dmpython-2.5.38-cp313-cp313-win_amd64.whl", hash = "sha256:2929b94722d282f07a9b808667d112eff0e52a4c2a80b8df34aaf13e6173e986", size = 8768155, upload-time = "2026-07-17T06:19:50.918Z" },
+]
+
+[[package]]
+name = "dmsqlalchemy"
+version = "2.0.17"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "dmpython" },
+    { name = "sqlalchemy" },
+]
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/f8/bb/5b5b7fa9bebc25c25fc06f655046812e73d8c9cc7888594f3e64794390ae/dmsqlalchemy-2.0.17-py3-none-any.whl", hash = "sha256:7ca2a194fb5b8885d822a7ac4fa65981d9d1f9d7973e40fb3e6dfb313f526e85", size = 70181, upload-time = "2026-07-16T08:17:40.179Z" },
+]
+
+[[package]]
 name = "dnspython"
 version = "2.8.0"
 source = { registry = "https://pypi.org/simple" }
@@ -3302,6 +3337,10 @@ dependencies = [
 caching = [
     { name = "diskcache" },
 ]
+dameng = [
+    { name = "dmpython" },
+    { name = "dmsqlalchemy" },
+]
 extra-proxy = [
     { name = "a2a-sdk" },
     { name = "azure-identity" },
@@ -3490,6 +3529,8 @@ requires-dist = [
     { name = "ddtrace", marker = "extra == 'proxy-runtime'", specifier = ">=2.19.0,<3.0" },
     { name = "detect-secrets", marker = "extra == 'proxy-runtime'", specifier = ">=1.5.0,<2.0" },
     { name = "diskcache", marker = "extra == 'caching'", specifier = ">=5.6.3,<6.0" },
+    { name = "dmpython", marker = "extra == 'dameng'" },
+    { name = "dmsqlalchemy", marker = "extra == 'dameng'" },
     { name = "fastapi", marker = "extra == 'proxy'", specifier = ">=0.136.3,<1.0" },
     { name = "fastapi-sso", marker = "extra == 'proxy'", specifier = ">=0.19.0,<1.0" },
     { name = "fastuuid", specifier = ">=0.14.0,<1.0" },
@@ -3551,7 +3592,7 @@ requires-dist = [
     { name = "uvloop", marker = "sys_platform != 'win32' and extra == 'proxy'", specifier = ">=0.21.0,<1.0" },
     { name = "websockets", marker = "extra == 'proxy'", specifier = ">=15.0.1,<16.0" },
 ]
-provides-extras = ["proxy", "extra-proxy", "utils", "caching", "semantic-router", "mlflow", "grpc", "stt-nvidia-riva", "google", "proxy-runtime"]
+provides-extras = ["proxy", "dameng", "extra-proxy", "utils", "caching", "semantic-router", "mlflow", "grpc", "stt-nvidia-riva", "google", "proxy-runtime"]
 
 [package.metadata.requires-dev]
 ci = [
