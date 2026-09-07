@@ -3,9 +3,24 @@
 ## 概述
 LiteLLM 支持 **PostgreSQL (Prisma)** 与 **达梦数据库 DM8 (SQLAlchemy + dmPython)** 两种持久化模式。
 
+达梦官方已提供标准的 Python 生态包：
+- [达梦 dmSQLAlchemy 方言包说明](https://eco.dameng.com/document/dm/zh-cn/pm/dmsqlalchemy-dialect-package.html)
+- [DamengDB dmSQLAlchemy GitHub 仓库](https://github.com/DamengDB/dmSQLAlchemy)
+
+## 依赖安装
+
+在使用达梦 DM8 模式前，请通过 pip 安装官方驱动包：
+
+```bash
+pip install dmPython
+pip install dmSQLAlchemy
+```
+
+---
+
 ## 配置说明
 
-### 环境变配置
+### 环境变量配置
 
 #### 1. 达梦 DM8 模式
 ```bash
