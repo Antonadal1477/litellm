@@ -1,17 +1,19 @@
 """
 Dameng DM8 Repository and Model Handle Implementation
-Provides CRUD, upsert (MERGE INTO/tx lock), group_by aggregation, and transaction handles for DM8.
+Provides CRUD, atomic upsert (MERGE INTO / SELECT FOR UPDATE), group_by aggregation, and transaction handles for DM8.
 """
 
 import json
 from typing import Any, Dict, List, Optional, Union
 from sqlalchemy import select, update, delete, func, or_, and_, text
 from sqlalchemy.orm import Session
+from sqlalchemy.exc import IntegrityError
 from litellm.proxy.db.base import (
     BaseModelHandle,
     DatabaseError,
     DatabaseNotFoundError,
     DatabaseIntegrityError,
+    DatabaseConflictError,
 )
 from litellm.proxy.db.dameng.models import Base, to_dict, LiteLLM_SchemaVersion
 from litellm.proxy.db.dameng.session import DamengSessionManager
@@ -206,27 +208,50 @@ class DamengModelHandle(BaseModelHandle):
         return await self.session_manager.run_in_db_thread(_run)
 
     def _sync_upsert(self, session: Session, where: Dict[str, Any], data: Dict[str, Any]) -> Any:
+        """
+        Atomic upsert implementation for Dameng DM8 / SQLAlchemy.
+        Uses row locking and IntegrityError fallback to handle concurrent upsert safety.
+        """
         create_data = data.get("create", data)
         update_data = data.get("update", data)
 
-        stmt = select(self.model_cls)
-        stmt = self._apply_where(stmt, where)
-        obj = session.execute(stmt).scalar_one_or_none()
+        try:
+            stmt = select(self.model_cls)
+            if session.bind and session.bind.dialect.name != "sqlite":
+                stmt = stmt.with_for_update()
+            stmt = self._apply_where(stmt, where)
+            obj = session.execute(stmt).scalar_one_or_none()
 
-        if obj:
-            norm_update = self._normalize_input_dict(update_data)
-            for k, v in norm_update.items():
-                if hasattr(obj, k):
-                    setattr(obj, k, v)
-        else:
-            full_data = {**where, **create_data}
-            norm_create = self._normalize_input_dict(full_data)
-            obj = self.model_cls(**norm_create)
-            session.add(obj)
+            if obj:
+                norm_update = self._normalize_input_dict(update_data)
+                for k, v in norm_update.items():
+                    if hasattr(obj, k):
+                        setattr(obj, k, v)
+            else:
+                full_data = {**where, **create_data}
+                norm_create = self._normalize_input_dict(full_data)
+                obj = self.model_cls(**norm_create)
+                session.add(obj)
 
-        session.commit()
-        session.refresh(obj)
-        return to_dict(obj)
+            session.commit()
+            session.refresh(obj)
+            return to_dict(obj)
+
+        except IntegrityError:
+            session.rollback()
+            stmt = select(self.model_cls)
+            stmt = self._apply_where(stmt, where)
+            obj = session.execute(stmt).scalar_one_or_none()
+            if obj:
+                norm_update = self._normalize_input_dict(update_data)
+                for k, v in norm_update.items():
+                    if hasattr(obj, k):
+                        setattr(obj, k, v)
+                session.commit()
+                session.refresh(obj)
+                return to_dict(obj)
+            else:
+                raise DatabaseConflictError("Concurrent upsert conflict could not be resolved.")
 
     async def upsert(
         self,
